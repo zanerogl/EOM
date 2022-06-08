@@ -1,0 +1,11 @@
+release/angle_detector.o
+release/color_detector.o
+release/contourwithdata.o
+release/ip_camera_setting.o
+release/login.o
+release/main.o
+release/mainwindow.o
+release/qrc_res.o
+release/moc_ip_camera_setting.o
+release/moc_login.o
+release/moc_mainwindow.o
