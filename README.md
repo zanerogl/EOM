@@ -18,7 +18,7 @@
 
 *实机演示*
 
-![演示](./blog/assets/演示.gif)
+![演示](./blog/assets/实机演示.GIF)
 
 
 
