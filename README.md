@@ -6,7 +6,7 @@
 
 ### 主界面
 
-![主界面](./blog/assets/基于Qt和OpenCV的工业视觉检测APP.assets/主界面.png)
+![主界面](./blog/assets/主界面.png)
 
 包含功能：模板图片集获取，模板图片集清除，端口选择，开启端口监听，关闭端口监听，检测结果发送下位机（本次演示所用下位机为 ABB的IPB 120 型机械臂）
 
@@ -14,11 +14,11 @@
 
 *IP摄像头演示*
 
-![IP摄像头演示](./blog/assets/基于Qt和OpenCV的工业视觉检测APP.assets/IP摄像头演示.GIF)
+![IP摄像头演示](./blog/assets/IP摄像头演示.GIF)
 
 *实机演示*
 
-![演示](./blog/assets/基于Qt和OpenCV的工业视觉检测APP.assets/演示.gif)
+![演示](./blog/assets/演示.gif)
 
 
 
