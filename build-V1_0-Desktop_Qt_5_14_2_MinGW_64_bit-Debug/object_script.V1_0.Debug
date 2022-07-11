@@ -1,0 +1,13 @@
+debug/angle_detector.o
+debug/color_detector.o
+debug/contourwithdata.o
+debug/img_template_widget.o
+debug/ip_camera_setting.o
+debug/main.o
+debug/mainwindow.o
+debug/mylabel.o
+debug/qrc_res.o
+debug/moc_img_template_widget.o
+debug/moc_ip_camera_setting.o
+debug/moc_mainwindow.o
+debug/moc_mylabel.o
