@@ -148,6 +148,7 @@ release/qrc_res.cpp: ../5/resources/res.qrc \
 		../5/resources/screen.png \
 		../5/resources/original_image.png \
 		../5/resources/classifications.xml \
+		../5/resources/ip_setting.png \
 		../5/resources/new.png \
 		../5/resources/language.png \
 		../5/resources/ip_camera.png

@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>about.png</file>
+        <file>avatar.png</file>
+        <file>camera.png</file>
+        <file>exit_fullscreen.png</file>
+        <file>fullscreen.png</file>
+        <file>ip.png</file>
+        <file>language.png</file>
+        <file>loading.gif</file>
+        <file>new.png</file>
+        <file>open.png</file>
+        <file>quit.png</file>
+        <file>R-C.gif</file>
+        <file>Zanerogl.png</file>
+        <file>ip_camera.png</file>
+        <file>local_camera.png</file>
+        <file>original_image.png</file>
+        <file>screen.png</file>
+        <file>captured_image.png</file>
+        <file>test.jpg</file>
+        <file>mo1.png</file>
+        <file>login.jpg</file>
+        <file>classifications.xml</file>
+        <file>images.xml</file>
+    </qresource>
+</RCC>

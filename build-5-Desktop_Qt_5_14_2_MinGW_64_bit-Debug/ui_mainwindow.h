@@ -34,6 +34,7 @@ public:
     QAction *actionIP_Camera;
     QAction *actionQuit;
     QAction *actionLogout;
+    QAction *actionIP_Camera_Setting;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout;
     QWidget *widget_2;
@@ -47,15 +48,14 @@ public:
     QLabel *label_2;
     QWidget *widget;
     QGridLayout *gridLayout;
-    QTextBrowser *log;
-    QLabel *original_image;
-    QSpinBox *port;
-    QLabel *captured_image;
-    QPushButton *test;
+    QLabel *label;
     QPushButton *Server_startup;
     QPushButton *clear_button;
+    QSpinBox *port;
+    QLabel *captured_image;
+    QLabel *original_image;
     QPushButton *quit_button;
-    QLabel *label;
+    QTextBrowser *log;
     QMenuBar *menubar;
     QMenu *menuSetting;
     QMenu *menuCamera;
@@ -83,6 +83,8 @@ public:
         actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
         actionLogout = new QAction(MainWindow);
         actionLogout->setObjectName(QString::fromUtf8("actionLogout"));
+        actionIP_Camera_Setting = new QAction(MainWindow);
+        actionIP_Camera_Setting->setObjectName(QString::fromUtf8("actionIP_Camera_Setting"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -164,30 +166,34 @@ public:
         widget->setObjectName(QString::fromUtf8("widget"));
         gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        log = new QTextBrowser(widget);
-        log->setObjectName(QString::fromUtf8("log"));
+        label = new QLabel(widget);
+        label->setObjectName(QString::fromUtf8("label"));
         QFont font5;
         font5.setFamily(QString::fromUtf8("DengXian"));
-        font5.setPointSize(10);
-        log->setFont(font5);
+        label->setFont(font5);
 
-        gridLayout->addWidget(log, 4, 0, 1, 2);
+        gridLayout->addWidget(label, 1, 0, 1, 1);
 
-        original_image = new QLabel(widget);
-        original_image->setObjectName(QString::fromUtf8("original_image"));
-        original_image->setMinimumSize(QSize(160, 120));
-        original_image->setMaximumSize(QSize(160, 120));
-        original_image->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 0, 0);\n"
-"border-width: 1px;\n"
-"border-style: solid;\n"
-"background-color: rgba(0, 0, 0, 95);\n"
-""));
+        Server_startup = new QPushButton(widget);
+        Server_startup->setObjectName(QString::fromUtf8("Server_startup"));
+        Server_startup->setFont(font4);
+        Server_startup->setCursor(QCursor(Qt::PointingHandCursor));
 
-        gridLayout->addWidget(original_image, 0, 0, 1, 1);
+        gridLayout->addWidget(Server_startup, 2, 1, 1, 1);
+
+        clear_button = new QPushButton(widget);
+        clear_button->setObjectName(QString::fromUtf8("clear_button"));
+        clear_button->setFont(font4);
+        clear_button->setCursor(QCursor(Qt::PointingHandCursor));
+
+        gridLayout->addWidget(clear_button, 6, 0, 1, 2);
 
         port = new QSpinBox(widget);
         port->setObjectName(QString::fromUtf8("port"));
-        port->setFont(font5);
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("DengXian"));
+        font6.setPointSize(10);
+        port->setFont(font6);
         port->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         port->setMinimum(1000);
         port->setMaximum(99999);
@@ -207,26 +213,17 @@ public:
 
         gridLayout->addWidget(captured_image, 0, 1, 1, 1);
 
-        test = new QPushButton(widget);
-        test->setObjectName(QString::fromUtf8("test"));
-        test->setFont(font4);
-        test->setCursor(QCursor(Qt::PointingHandCursor));
+        original_image = new QLabel(widget);
+        original_image->setObjectName(QString::fromUtf8("original_image"));
+        original_image->setMinimumSize(QSize(160, 120));
+        original_image->setMaximumSize(QSize(160, 120));
+        original_image->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 0, 0);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"background-color: rgba(0, 0, 0, 95);\n"
+""));
 
-        gridLayout->addWidget(test, 9, 0, 1, 2);
-
-        Server_startup = new QPushButton(widget);
-        Server_startup->setObjectName(QString::fromUtf8("Server_startup"));
-        Server_startup->setFont(font4);
-        Server_startup->setCursor(QCursor(Qt::PointingHandCursor));
-
-        gridLayout->addWidget(Server_startup, 2, 1, 1, 1);
-
-        clear_button = new QPushButton(widget);
-        clear_button->setObjectName(QString::fromUtf8("clear_button"));
-        clear_button->setFont(font4);
-        clear_button->setCursor(QCursor(Qt::PointingHandCursor));
-
-        gridLayout->addWidget(clear_button, 6, 0, 1, 2);
+        gridLayout->addWidget(original_image, 0, 0, 1, 1);
 
         quit_button = new QPushButton(widget);
         quit_button->setObjectName(QString::fromUtf8("quit_button"));
@@ -235,13 +232,11 @@ public:
 
         gridLayout->addWidget(quit_button, 7, 0, 1, 2);
 
-        label = new QLabel(widget);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font6;
-        font6.setFamily(QString::fromUtf8("DengXian"));
-        label->setFont(font6);
+        log = new QTextBrowser(widget);
+        log->setObjectName(QString::fromUtf8("log"));
+        log->setFont(font6);
 
-        gridLayout->addWidget(label, 1, 0, 1, 1);
+        gridLayout->addWidget(log, 4, 0, 1, 2);
 
 
         horizontalLayout->addWidget(widget);
@@ -269,6 +264,7 @@ public:
         menuCamera->addSeparator();
         menuCamera->addAction(actionIP_Camera);
         menuHelp->addAction(actionAbout);
+        menuHelp->addAction(actionIP_Camera_Setting);
 
         retranslateUi(MainWindow);
 
@@ -283,23 +279,23 @@ public:
         actionIP_Camera->setText(QCoreApplication::translate("MainWindow", "IP Camera", nullptr));
         actionQuit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
         actionLogout->setText(QCoreApplication::translate("MainWindow", "Logout", nullptr));
+        actionIP_Camera_Setting->setText(QCoreApplication::translate("MainWindow", "IP Camera Setting", nullptr));
         screen->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>", nullptr));
         capture->setText(QCoreApplication::translate("MainWindow", "Capture", nullptr));
         clear_templates->setText(QCoreApplication::translate("MainWindow", "Clear templates", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Number of templates", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Port", nullptr));
+        Server_startup->setText(QCoreApplication::translate("MainWindow", "Server startup", nullptr));
+        clear_button->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
+        captured_image->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>", nullptr));
+        original_image->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>", nullptr));
+        quit_button->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
         log->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DengXian'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DS ISO 1'; font-size:12pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DS ISO 1'; font-size:12pt;\"><br /></p></body></html>", nullptr));
-        original_image->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>", nullptr));
-        captured_image->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>", nullptr));
-        test->setText(QCoreApplication::translate("MainWindow", "Test", nullptr));
-        Server_startup->setText(QCoreApplication::translate("MainWindow", "Server startup", nullptr));
-        clear_button->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
-        quit_button->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Port", nullptr));
         menuSetting->setTitle(QCoreApplication::translate("MainWindow", "Setting", nullptr));
         menuCamera->setTitle(QCoreApplication::translate("MainWindow", "Camera", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
