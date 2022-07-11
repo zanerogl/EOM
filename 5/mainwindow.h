@@ -66,7 +66,7 @@ private slots:
     std::string temp( cv::Mat frame );    //临时函数
     std::string detect_color(cv::Mat imgOriginal);    //颜色检测
 
-    void on_test_clicked(); //测试按钮
+//    void on_test_clicked(); //测试按钮
 
     void on_Server_startup_clicked();
 

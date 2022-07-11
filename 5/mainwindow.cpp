@@ -42,6 +42,7 @@ void MainWindow::MennBarInit()
     ui->actionLocal_Camera->setIcon(QIcon(":/res/local_camera.png"));
     ui->actionIP_Camera->setIcon(QIcon(":/res/ip_camera.png"));
     ui->actionAbout->setIcon(QIcon(":/res/about.png"));
+    ui->actionIP_Camera_Setting->setIcon(QIcon(":/res/ip_setting.png"));
 //    ui->screen->setPixmap(QPixmap(":/res/screen.png"));
 //    ui->original_image->setPixmap(QPixmap(":/res/original_image.png"));
 //    ui->captured_image->setPixmap(QPixmap(":/res/captured_image.png"));
@@ -65,6 +66,12 @@ void MainWindow::MennBarInit()
 //    connect(ui->actionLogout, &QAction::triggered, this, [=](){
 //        this->destroy();
 //    });
+
+    //ip摄像头设置按钮
+    connect(ui->actionIP_Camera_Setting, &QAction::triggered, this, [=](){
+        QDesktopServices::openUrl(QUrl(QString("http://192.168.43.1:8080")));
+//        static auto ConnectClickedSlot = connect(this->ip_camera_setting_widget, SIGNAL(send(std::string, std::string)), this, SLOT(ip_camera_open(std::string, std::string)));
+    });
 
 }
 
@@ -92,7 +99,7 @@ void MainWindow::local_camera_open()
 {
     if(capture.isOpened()){
         capture.release();
-//        ui->screen->setPixmap(QPixmap());
+        ui->screen->setPixmap(QPixmap());
         delete camera_timer;
         camera_timer = nullptr;
     }
@@ -133,7 +140,7 @@ void MainWindow::ip_camera_open(std::string address, std::string port)
 {
     if(capture.isOpened()){
         capture.release();
-//        ui->screen->setPixmap(QPixmap());
+        ui->screen->setPixmap(QPixmap());
         delete camera_timer;
         camera_timer = nullptr;
     }
@@ -407,47 +414,47 @@ void MainWindow::on_Server_startup_clicked()
 }
 
 //测试按钮
-void MainWindow::on_test_clicked()
-{
-    //测试拍到的照片
-//    std::cout<<temp(camera_capture());
-//    QTimer *temp_timer = new QTimer(this);
-//    temp_timer->start(25);
+//void MainWindow::on_test_clicked()
+//{
+//    //测试拍到的照片
+////    std::cout<<temp(camera_capture());
+////    QTimer *temp_timer = new QTimer(this);
+////    temp_timer->start(25);
 
-//    connect(temp_timer, &QTimer::timeout, this, [=](){
-//        temp_timer->stop();
-//        delete temp_timer;
-////        int i = 6;
-//        imshow("asad",camera_capture(frame));
-////        cv::imwrite("D:/capture.jpg", camera_capture());
-////        i++;
-//    });
-    //测试发送
-//    server_send("ad");
-
-    //测试模板图片集
-//    if(img_template.empty()){
-//        qDebug()<<"Empty";
-//    }
-//    else{
-//        qDebug()<<"Size"<<img_template.size();
-//    }
-
-//    for(auto& i : img_template ){
-//        static int id = 0;
-//        imshow("aa"+to_string(id++),i);
-//        qDebug()<<"*************************";
-//        qDebug()<<&i;
-//    }
-////    imshow("xx",frame);
-
-
+////    connect(temp_timer, &QTimer::timeout, this, [=](){
+////        temp_timer->stop();
+////        delete temp_timer;
+//////        int i = 6;
+////        imshow("asad",camera_capture(frame));
+//////        cv::imwrite("D:/capture.jpg", camera_capture());
+//////        i++;
+////    });
 //    //测试发送
-    server_send("0,150,2\0");
+////    server_send("ad");
+
+//    //测试模板图片集
+////    if(img_template.empty()){
+////        qDebug()<<"Empty";
+////    }
+////    else{
+////        qDebug()<<"Size"<<img_template.size();
+////    }
+
+////    for(auto& i : img_template ){
+////        static int id = 0;
+////        imshow("aa"+to_string(id++),i);
+////        qDebug()<<"*************************";
+////        qDebug()<<&i;
+////    }
+//////    imshow("xx",frame);
+
+
+////    //测试发送
+//    server_send("0,150,2\0");
 
 
 
-}
+//}
 
 //临时函数
 std::string MainWindow::temp( cv::Mat frame )

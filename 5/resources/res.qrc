@@ -23,5 +23,6 @@
         <file>login.jpg</file>
         <file>classifications.xml</file>
         <file>images.xml</file>
+        <file>ip_setting.png</file>
     </qresource>
 </RCC>
